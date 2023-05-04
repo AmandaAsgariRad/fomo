@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "../fomo.css"
@@ -10,10 +8,17 @@ export const UserFomos = () => {
 
     const navigate = useNavigate()
 
+    const localFomoUser = localStorage.getItem("fomo_user")
+    const fomoUserObject = JSON.parse(localFomoUser)
+    const fetchFomos = () => {
+        return fetch(`http://localhost:8088/fomoEvents?userId=${fomoUserObject.id}&_expand=genre`)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        setFomos(data)
+                    })
+    }
     useEffect(
         () => {
-            const localFomoUser = localStorage.getItem("fomo_user")
-            const fomoUserObject = JSON.parse(localFomoUser)
             if (fomoUserObject) {
                 fetch(`http://localhost:8088/fomoEvents?userId=${fomoUserObject.id}&_expand=genre`)
                     .then((response) => response.json())
@@ -32,7 +37,7 @@ export const UserFomos = () => {
                 method: "DELETE",
             })
                 .then(() => {
-                    navigate(`/userFomos`)
+                    fetchFomos()
                 })
         }
     }
