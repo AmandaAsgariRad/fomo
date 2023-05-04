@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+
+/* .event-container {
+    
+} */
+
+.event {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.header_events {
+    text-align: center;
+}
+
+img {
+    max-width: 50%;
+    height: auto;
+}

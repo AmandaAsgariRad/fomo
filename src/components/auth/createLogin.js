@@ -1,10 +1,10 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "./login.css"
 
 export const CreateLogin = () => {
     const [user, setUser] = useState({
-        email: "",
+        loginEmail: "",
         isAdmin: false
     })
 
@@ -27,7 +27,7 @@ const createNewUser = () => {
                     admin: createdUser.admin
                 }))
 
-                navigate("/")
+                navigate("/events")
             }
         })
 }
@@ -95,7 +95,7 @@ return (
             <fieldset>
             <label htmlFor="zip">Zip</label>
                 <input onChange={updateUser}
-                    type="text"
+                    type="number"
                     id="zip"
                     className="form-control"
                     placeholder="required"
@@ -106,7 +106,7 @@ return (
             <label htmlFor="email">Email for Login</label>
                 <input onChange={updateUser}
                     type="email"
-                    id="email"
+                    id="loginEmail"
                     className="form-control"
                     placeholder="required"
                     required autoFocus />
@@ -114,6 +114,10 @@ return (
             <fieldset>
                     <button type="submit">Create Profile</button>
                 </fieldset>
+            <h3>Already a Member?</h3>
+            <section className="link--login">
+                <Link to="/login">Log In</Link>
+            </section>
         </form>
 
     </main>

@@ -13,3 +13,9 @@
 
 //Nav1-Browsing, Create Profile, Login: Events, LogIn, Create Login
 //Nav2-Logged in Browsing, User/Admin Profiles, Edit Profile, Create Fomo, Created Fomos: Events, My Profile, Logout
+
+//delete fomo
+//update the date to display correctly
+//finish the all fomos from admin pages
+//finish the allfomos function and page
+//finish admin view routing for 'my profile'

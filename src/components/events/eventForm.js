@@ -1,68 +1,164 @@
-export const createEvent = () => {
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+//import "./login.css"
+export const CreateEvent = () => {
+    const localFomoUser = localStorage.getItem("fomo_user")
+    const fomoUserObject = JSON.parse(localFomoUser)
+
+    const [fomo, setEvent] = useState({
+        name: "",
+        userId: fomoUserObject ? fomoUserObject.id : "",
+        genreId: 0,
+        venue: "",
+        when: "",
+        image: "",
+        infoLink: "",
+        spotify: "",
+        youTube: ""
+    })
+
+    const [musicGenres, setMusicGenres] = useState([])
+
+    const navigate = useNavigate()
+
+    const createNewEvent = (event) => {
+        event.preventDefault()
+        return fetch("http://localhost:8088/fomoEvents", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(fomo)
+        })
+            .then(response => response.json())
+            .then(() =>
+                navigate("/userFomos")
+
+            )
+    }
+
+    useEffect(
+        () => {
+            fetch(`http://localhost:8088/genres`)
+                .then(response => response.json())
+                .then((data) => {
+                    setMusicGenres(data)
+                })
+        },
+        []
+    )
+
+    const newEvent = (event) => {
+        const copy = { ...fomo }
+        if (event.target.id === 'when') {
+            const date = new Date(event.target.value)
+            copy['when'] = date.toLocaleDateString('en-US')
+        } 
+        else {
+        copy[event.target.id] = event.target.value
+        }
+        setEvent(copy)
+    }
     return (
         <main style={{ textAlign: "center" }}>
-            <form className="form--login" onSubmit={handleCreate}>
-                <h1 className="create_profile">Create A Profile</h1>
+            <form className="form--login" onSubmit={createNewEvent}>
+                <h1 className="create_profile">Create A FOMO</h1>
                 <fieldset>
-                    <label htmlFor="fullName">Full Name</label>
-                    <input onChange={updateUser}
+                    <label htmlFor="name">Artist Name: </label>
+                    <input onChange={newEvent}
                         type="text"
-                        id="fullName"
+                        id="name"
                         className="form-control"
-                        placeholder="required"
-                        required autoFocus/>
+                        required />
+                </fieldset>
+                <div className="genre-dropdown-container">
+                    <label htmlFor="genre">Genre: </label>
+                    <select id="genre" className="genreDropDowns"
+                        onChange={(event) => {
+                            const copy = { ...fomo }
+                            copy.genreId = parseInt(event.target.value);
+                            setEvent(copy)
+                        }
+                        }>
+                        <option value="0">Pick a music genre</option>
+                        {musicGenres.map(
+                            (type) => {
+                                return <option
+                                    key={type.id}
+                                    id={type.id}
+                                    value={type.id}>
+                                    {type.type}
+                                </option>
+                            }
+                        )}
+                    </select>
+                </div>
+
+                <fieldset>
+                    <label htmlFor="venue">Venue: </label>
+                    <input onChange={newEvent}
+                        type="text"
+                        id="venue"
+                        className="form-control"
+                        required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="address">Address</label>
-                    <input onChange={updateUser}
-                        type="text"
-                        id="address"
+                    <label htmlFor="when">When: </label>
+                    <input onChange={newEvent}
+                        type="date"
+                        id="when"
                         className="form-control"
                         placeholder="required"
-                        required autoFocus />
+                        required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="city">City</label>
-                    <input onChange={updateUser}
+                    <label htmlFor="image">Image: </label>
+                    <input onChange={newEvent}
                         type="text"
-                        id="city"
+                        id="image"
                         className="form-control"
-                        placeholder="required"
-                        required autoFocus />
+                        placeholder="paste image URL here"
+                        pattern="^(https)://.*\.(jpg|jpeg|png|gif)$"
+                        title="Please enter a valid image URL (JPG, JPEG, PNG, or GIF)"
+                        required />
                 </fieldset>
                 <fieldset>
-                <label htmlFor="state">State</label>
-                    <input onChange={updateUser}
-                        type="text"
-                        id="state"
+                    <label htmlFor="infoLink">Info Link: </label>
+                    <input onChange={newEvent}
+                        type="url"
+                        id="infoLink"
                         className="form-control"
-                        placeholder="required"
-                        required autoFocus />
-                </fieldset>
-                <fieldset>
-                <label htmlFor="zip">Zip</label>
-                    <input onChange={updateUser}
-                        type="text"
-                        id="zip"
-                        className="form-control"
-                        placeholder="required"
+                        placeholder="must be a URL"
                         required
-                        pattern="[0-9]{5}" />
+                        pattern="https?://.+"
+                    />
                 </fieldset>
                 <fieldset>
-                <label htmlFor="email">Email for Login</label>
-                    <input onChange={updateUser}
-                        type="email"
-                        id="email"
+                    <label htmlFor="spotify">Spotify URL: </label>
+                    <input onChange={newEvent}
+                        type="text"
+                        id="spotify"
                         className="form-control"
-                        placeholder="required"
-                        required autoFocus />
+                        placeholder="must be a Spotify URL"
+                        pattern="https:\/\/open\.spotify\.com\/artist\/[a-zA-Z0-9]+"
+                        title="Please enter a valid Spotify artist URL"
+                        required />
                 </fieldset>
                 <fieldset>
-                        <button type="submit">Create Profile</button>
-                    </fieldset>
+                    <label htmlFor="youTube">YouTube URL: </label>
+                    <input onChange={newEvent}
+                        type="text"
+                        id="youTube"
+                        className="form-control"
+                        placeholder="must be a YouTube URL"
+                        title="Please enter a valid YouTube video URL"
+                        required />
+                </fieldset>
+                <fieldset>
+                    <button type="submit">Create FOMO</button>
+                </fieldset>
             </form>
-    
+
         </main>
     )
 }

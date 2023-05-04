@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
-import "./NavBar.css"
+import "./navBar.css"
 
 export const Nav2 = () => {
     const navigate = useNavigate()
@@ -11,6 +11,9 @@ export const Nav2 = () => {
             </li>
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/users">My Profile</Link>
+            </li>
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/users/userFaves">Favorites</Link>
             </li>
             {
                 localStorage.getItem("fomo_user")

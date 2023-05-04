@@ -1,0 +1,15 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 200px;
+    list-style: none;
+    
+    
+}
+
+.navbar__item {
+    margin-bottom: 10px;
+    text-decoration: none;
+}

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import "./navBar.css"
 
 export const Nav1 = () => {
 
@@ -13,7 +14,7 @@ export const Nav1 = () => {
             </li>
 
             <li className="navbar_item active">
-                <Link className="navbar_link" to="/create">Create Profile</Link>
+                <Link className="navbar_link" to="/createLogin">Create Profile</Link>
             </li>
         </ul>
     )

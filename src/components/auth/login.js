@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "./login.css"
 
 export const Login = () => {
-    const [loginEmail, set] = useState("amanda_asgarirad@yahoo.com")
+    const [loginEmail, setLoginEmail] = useState("amanda_asgarirad@yahoo.com")
     const navigate = useNavigate()
 
     const handleLogin = (event) => {
@@ -19,7 +19,7 @@ export const Login = () => {
                     admin: user.isAdmin
                 }))
 
-                navigate("/")
+                navigate("/events")
             }
             else {
                 window.alert("Invalid Login")
@@ -36,13 +36,13 @@ export const Login = () => {
                         <label htmlFor="inputEmail">Enter email address</label>
                         <input type="email"
                         value={loginEmail}
-                        onChange={event => set(event.target.value)}
+                        onChange={event => setLoginEmail(event.target.value)}
                         className="form-control"
                         placeholder="required"
                         required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">Sign In</button>
+                        <button type="login_submit">Sign In</button>
                     </fieldset>
                 </form>
             </section>
