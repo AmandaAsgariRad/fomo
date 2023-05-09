@@ -21,6 +21,7 @@ export const EventList = () => {
         </div>
     {
         fomoEvents.map((fomoEvent) => <Events key={`fomoEvent--${fomoEvent.id}`}
+        userId={fomoEvent.userId}
         name={fomoEvent.name}
         id={fomoEvent.id}
         venue={fomoEvent.venue}
