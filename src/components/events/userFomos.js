@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { FaSpotify, FaYoutube } from "react-icons/fa"
 import "../fomo.css"
-import { Events } from "./events"
 
 export const UserFomos = () => {
     const [fomos, setFomos] = useState([])
@@ -10,12 +10,13 @@ export const UserFomos = () => {
 
     const localFomoUser = localStorage.getItem("fomo_user")
     const fomoUserObject = JSON.parse(localFomoUser)
+
     const fetchFomos = () => {
         return fetch(`http://localhost:8088/fomoEvents?userId=${fomoUserObject.id}&_expand=genre`)
-                    .then((response) => response.json())
-                    .then((data) => {
-                        setFomos(data)
-                    })
+            .then((response) => response.json())
+            .then((data) => {
+                setFomos(data)
+            })
     }
     useEffect(
         () => {
@@ -43,36 +44,79 @@ export const UserFomos = () => {
     }
 
 
-        return (
-            <div className="allfomos-container">
-                <div className="allfomos-header">
-                    <h2>Fomos Created</h2>
-                </div>
-                <article className="all_fomos">
-                    {fomos.map((fomoEvent) => (
-                        <div key={fomoEvent.id}>
-                            <Events
-                                name={fomoEvent.name}
-                                id={fomoEvent.id}
-                                venue={fomoEvent.venue}
-                                when={fomoEvent.when}
-                                image={fomoEvent.image}
-                                genreId={fomoEvent?.genre?.type}
-                                spotify={fomoEvent.spotify}
-                                youTube={fomoEvent.youTube}
-                                infoLink={fomoEvent.infoLink}
-                            />
-                            <button 
-                        className="btn-deleteFomo"
-                        id="deleteBtn"
-                        onClick={() => handleDelete(fomoEvent.id)}
-                        type="delete"
-                    >
-                        Delete
-                    </button>
-                        </div>
-                    ))}
-                </article>
+    return (
+        <div className="allfomos-container">
+            <div className="allfomos-header">
+                <h2>Fomos Created</h2>
             </div>
-        )
-    }
+            <article className="all_fomos">
+                {fomos.map((fomoEvent) => (
+                    <div key={`fomo--${fomoEvent.id}`} className="event-container">
+                        <section className="event">
+                            <div className="image">
+                                <img src={fomoEvent.image} alt={fomoEvent.name} />
+                            </div>
+                            <div className="artistName">
+                                <h2>{fomoEvent.name}</h2>
+                            </div>
+                            <div className="genre">
+                                <h4>{fomoEvent?.genre?.type}</h4>
+                            </div>
+                            <div className="venue">
+                                <h4>At {fomoEvent.venue}</h4>
+                            </div>
+                            <div className="when">
+                                <h4>On {fomoEvent.when}</h4>
+                            </div>
+                            <div className="spotifyLink">
+                                {fomoEvent.spotify && (
+                                    <a href={fomoEvent.spotify} target="_blank" rel="external">
+                                        <FaSpotify />
+                                    </a>
+                                )}
+                            </div>
+                            <div className="youTubeLink">
+                                {fomoEvent.youTube && (
+                                    <a href={fomoEvent.youTube} target="_blank" rel="external">
+                                        <FaYoutube />
+                                    </a>
+                                )}
+                            </div>
+                            <div className="infoLink">
+                                {fomoEvent.infoLink && (
+                                    <a href={fomoEvent.infoLink} target="_blank" rel="external">
+                                        <h4>Info Link</h4>
+                                    </a>
+                                )}
+                            </div>
+
+
+                            {fomoEvent.userId === fomoUserObject.id
+                                ? <>
+                                    <button
+                                        className="btn-deleteFomo"
+                                        id="deleteBtn"
+                                        onClick={() => handleDelete(fomoEvent.id)}
+                                        type="delete"
+                                    >
+                                        Delete
+                                    </button>
+                                    <button
+                                        className="btn-deleteFomo"
+                                        id="deleteBtn"
+                                    //    onClick={() => handleDelete(fomoEvent.id)}
+                                    //    type="delete"
+                                    >
+                                        Edit
+                                    </button>
+                                </>
+                                : <></>
+                            }
+                        </section>
+                    </div>
+                ))
+                }
+            </article >
+        </div >
+    )
+}
