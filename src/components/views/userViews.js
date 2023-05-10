@@ -6,6 +6,7 @@ import { UserFaves } from "../users/userFaves"
 import { CreateEvent } from "../events/eventForm"
 import { UserFomos } from "../events/userFomos"
 import { Events } from "../events/events"
+import { GenreFilter } from "../events/genreFilter"
 
 export const UserViews = () => {
     return (
@@ -25,6 +26,7 @@ export const UserViews = () => {
                 <Route path="eventForm" element={ <CreateEvent />} />
                 <Route path="userFomos" element={ <UserFomos />} />
                 <Route path="events/:eventId" element={ <Events />} />
+                <Route path="genreFilter" element={ <GenreFilter />} />
             </Route>
         </Routes>
     )

@@ -1,15 +1,12 @@
-.navbar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 200px;
-    list-style: none;
-    
+@import 'bulma/css/bulma.min.css';
+
+.nav-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     
 }
 
-.navbar__item {
-    margin-bottom: 10px;
-    text-decoration: none;
+.nav-item {
+    margin-top: 10px;
 }

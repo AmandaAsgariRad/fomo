@@ -23,7 +23,7 @@ export const CreateEvent = () => {
 
     const createNewEvent = (event) => {
         event.preventDefault()
-        return fetch("http://localhost:8088/fomoEvents", {
+        return fetch("http://localhost:8088/events", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -62,7 +62,7 @@ export const CreateEvent = () => {
     return (
         <main style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={createNewEvent}>
-                <h1 className="create_profile">Create A FOMO</h1>
+                <h1 className="is-size-2 has-text-centered">Create A FOMO</h1>
                 <fieldset>
                     <label htmlFor="name">Artist Name: </label>
                     <input onChange={newEvent}

@@ -21,10 +21,10 @@ export const UserDetails = () => {
 
     return (
     <section className="profileDetails">
-        <div className="profile_header">
+        <div className="is-size-2 has-text-centered">
             <h2>Profile Information</h2>
         </div>
-        <div className="profile_details">
+        <div className="profile_details has-text-centered">
             <ul>
             <li>Name: {user?.fullName}</li>
             <li>Address: {user?.address}</li>
@@ -34,19 +34,19 @@ export const UserDetails = () => {
             <li>Email: {user?.loginEmail}</li>
             </ul>
         </div>
-        <div className="edit_button">
+        <div className="edit_button has-text-centered">
             <Link to="/editProfile">
-            <button>Edit Profile</button>
+            <button className="button is-small" id="btnEdit">Edit Profile</button>
             </Link>
         </div>
-    <div className="btnUserCreatedFomo">
+    <div className="btnUserCreatedFomo has-text-centered">
         <Link to="/userFomos">
-            <button className="btnCreatedFomo">FOMO's Created</button>
+            <button className="button is-small" id="btnCreated">FOMO's Created</button>
         </Link>
     </div>
-    <div className="btnUserCreateFomo">
+    <div className="btnUserCreateFomo has-text-centered">
         <Link to="/eventForm">
-            <button className="btnCreateFomo">Create a FOMO</button>
+            <button className="button is-small" id="btnCreate">Create a FOMO</button>
         </Link>
     </div>
     </section>

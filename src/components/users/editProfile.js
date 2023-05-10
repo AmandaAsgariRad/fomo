@@ -55,8 +55,8 @@ export const EditProfile = () => {
             })
     }
 
-    return <form className="editProfileForm">
-        <h2 className="edit_profile">Edit Profile</h2>
+    return <form className="editProfileForm has-text-centered">
+        <h2 className="is-size-2 has-text-centered">Edit Profile</h2>
         <fieldset>
             <div className="form-group">
                 <label htmlFor="fullName">Full Name: </label>
@@ -129,7 +129,7 @@ export const EditProfile = () => {
                 } />
             </div>
         </fieldset>
-        <button className="btn-updateProfile" onClick={(event) =>
+        <button className="button is-small" id="updateBtn" onClick={(event) =>
             handleUpdateButtonClick(event)}>Update</button>
     </form>
 }
