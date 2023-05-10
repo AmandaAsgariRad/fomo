@@ -12,7 +12,7 @@ export const UserFomos = () => {
     const fomoUserObject = JSON.parse(localFomoUser)
 
     const fetchFomos = () => {
-        return fetch(`http://localhost:8088/fomoEvents?userId=${fomoUserObject.id}&_expand=genre`)
+        return fetch(`http://localhost:8088/events?userId=${fomoUserObject.id}&_expand=genre`)
             .then((response) => response.json())
             .then((data) => {
                 setFomos(data)
@@ -21,7 +21,7 @@ export const UserFomos = () => {
     useEffect(
         () => {
             if (fomoUserObject) {
-                fetch(`http://localhost:8088/fomoEvents?userId=${fomoUserObject.id}&_expand=genre`)
+                fetch(`http://localhost:8088/events?userId=${fomoUserObject.id}&_expand=genre`)
                     .then((response) => response.json())
                     .then((data) => {
                         setFomos(data)
@@ -34,7 +34,7 @@ export const UserFomos = () => {
 
     const handleDelete = (eventId) => {
         if (window.confirm('Are you sure you want to delete this event?')) {
-            return fetch(`http://localhost:8088/fomoEvents/${eventId}`, {
+            return fetch(`http://localhost:8088/events/${eventId}`, {
                 method: "DELETE",
             })
                 .then(() => {
@@ -46,7 +46,7 @@ export const UserFomos = () => {
 
     return (
         <div className="allfomos-container">
-            <div className="allfomos-header">
+            <div className="allfomos-header is-size-2 has-text-centered">
                 <h2>Fomos Created</h2>
             </div>
             <article className="all_fomos">
@@ -94,7 +94,7 @@ export const UserFomos = () => {
                             {fomoEvent.userId === fomoUserObject.id
                                 ? <>
                                     <button
-                                        className="btn-deleteFomo"
+                                        className="button is-small"
                                         id="deleteBtn"
                                         onClick={() => handleDelete(fomoEvent.id)}
                                         type="delete"
@@ -102,8 +102,8 @@ export const UserFomos = () => {
                                         Delete
                                     </button>
                                     <button
-                                        className="btn-deleteFomo"
-                                        id="deleteBtn"
+                                        className="button is-small"
+                                        id="editBtn"
                                     //    onClick={() => handleDelete(fomoEvent.id)}
                                     //    type="delete"
                                     >

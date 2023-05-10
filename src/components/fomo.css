@@ -1,10 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+@import 'bulma/css/bulma.min.css';
 
-/* .event-container {
-    
-} */
 
-.event {
+/* .event {
     display: flex;
     flex-direction: row;
     width: 20%;
@@ -32,8 +30,8 @@ img {
     width: 20%;
     margin-bottom: 20px;
     padding: 10px;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     border-radius: 4px;
     flex-wrap: wrap;
     justify-content: space-between;
-}
+} */

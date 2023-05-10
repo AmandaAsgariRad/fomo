@@ -55,7 +55,7 @@ const updateUser = (event) => {
 return (
     <main style={{ textAlign: "center" }}>
         <form className="form--login" onSubmit={handleCreate}>
-            <h1 className="create_profile">Create A Profile</h1>
+            <h1 className="create_profile is-size-2">Create A Profile</h1>
             <fieldset>
                 <label htmlFor="fullName">Full Name</label>
                 <input onChange={updateUser}
@@ -109,13 +109,13 @@ return (
                     id="loginEmail"
                     className="form-control"
                     placeholder="required"
-                    required autoFocus />
+                    required />
             </fieldset>
             <fieldset>
-                    <button type="submit">Create Profile</button>
+                    <button className="button is-small" id="btnCreate" type="submit">Create Profile</button>
                 </fieldset>
             <h3>Already a Member?</h3>
-            <section className="link--login">
+            <section className="link--login ">
                 <Link to="/login">Log In</Link>
             </section>
         </form>

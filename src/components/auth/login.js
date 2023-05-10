@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import "./login.css"
+// import fomoElectricImage from "fomo_electric.png"
 
 export const Login = () => {
     const [loginEmail, setLoginEmail] = useState("amanda_asgarirad@yahoo.com")
@@ -29,11 +30,12 @@ export const Login = () => {
 
     return (
         <main style={{ textAlign: "center" }} className="container--login">
+            {/* <img src={fomoElectricImage} alt="Fomo" /> */}
             <section>
                 <form className="form-login" onSubmit={handleLogin}>
-                    <h2>Login</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail">Enter email address</label>
+                    <div className="is-size-2 has-text-centered">Login</div>
+                    <fieldset className="email-input">
+                        <label htmlFor="inputEmail">Enter email address </label>
                         <input type="email"
                         value={loginEmail}
                         onChange={event => setLoginEmail(event.target.value)}
@@ -41,8 +43,8 @@ export const Login = () => {
                         placeholder="required"
                         required autoFocus />
                     </fieldset>
-                    <fieldset>
-                        <button type="login_submit">Sign In</button>
+                    <fieldset className="btn-sign-in">
+                        <button className="button is-small" id="btnLogin" type="login_submit">Sign In</button>
                     </fieldset>
                 </form>
             </section>
