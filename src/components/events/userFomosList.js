@@ -17,7 +17,7 @@ export const EventList = () => {
     )
     
     return <section className="events">
-        <div className="title is-size-2 has-text-centered mb-6">
+        <div className="title is-size-2 has-text-centered">
             <h2>Browse Events</h2>
         </div>
     {

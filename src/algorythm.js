@@ -14,7 +14,8 @@
 //Nav1-Browsing, Create Profile, Login: Events, LogIn, Create Login
 //Nav2-Logged in Browsing, User/Admin Profiles, Edit Profile, Create Fomo, Created Fomos: Events, My Profile, Logout
 
-//delete fomo functionality
+
+//delete favorite functionality
 //navbar logo in nav2 page
 //finish the all fomos from admin pages
 //finish admin view routing for 'my profile'

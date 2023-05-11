@@ -1,6 +1,6 @@
-
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router"
+import "./users.css"
 
 export const EditProfile = () => {
     const [user, updatedUser] = useState({
@@ -55,8 +55,10 @@ export const EditProfile = () => {
             })
     }
 
-    return <form className="editProfileForm has-text-centered">
-        <h2 className="is-size-2 has-text-centered">Edit Profile</h2>
+    return <form>
+        <div className="title is-size-2 has-text-centered">
+        <h2>Edit Profile</h2>
+        <div className="box has-text-centered">
         <fieldset>
             <div className="form-group">
                 <label htmlFor="fullName">Full Name: </label>
@@ -129,7 +131,11 @@ export const EditProfile = () => {
                 } />
             </div>
         </fieldset>
-        <button className="button is-small" id="updateBtn" onClick={(event) =>
+        <div className="button-container has-margin-top">
+        <button className="button is-small is-primary" id="updateBtn" onClick={(event) =>
             handleUpdateButtonClick(event)}>Update</button>
+            </div>
+            </div>
+            </div>
     </form>
 }
