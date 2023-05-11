@@ -60,9 +60,9 @@ export const CreateEvent = () => {
         setEvent(copy)
     }
     return (
-        <main style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={createNewEvent}>
-                <h1 className="is-size-2 has-text-centered">Create A FOMO</h1>
+                <div className="title is-size-2 has-text-centered">
+                <h1>Create A FOMO</h1>
                 <fieldset>
                     <label htmlFor="name">Artist Name: </label>
                     <input onChange={newEvent}
@@ -157,8 +157,8 @@ export const CreateEvent = () => {
                 <fieldset>
                     <button type="submit">Create FOMO</button>
                 </fieldset>
+                </div>
             </form>
 
-        </main>
     )
 }

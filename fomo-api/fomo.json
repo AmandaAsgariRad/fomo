@@ -79,6 +79,7 @@
       "genreId": 1,
       "image": "images/mayer.jpg",
       "name": "John Mayer",
+      "venue": "Bridgestone Arena",
       "when": "10/11/2023",
       "spotify": "https://open.spotify.com/artist/0hEurMDQu99nJRq8pTxO14",
       "youTube": "https://www.youtube.com/results?search_query=john+mayer",
@@ -669,6 +670,21 @@
       "id": 18,
       "eventId": 5,
       "userId": 2
+    },
+    {
+      "userId": 1,
+      "eventId": 1,
+      "id": 19
+    },
+    {
+      "userId": 1,
+      "eventId": 2,
+      "id": 20
+    },
+    {
+      "userId": 1,
+      "eventId": 3,
+      "id": 21
     }
   ]
 }

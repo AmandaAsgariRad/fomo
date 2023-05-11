@@ -53,9 +53,8 @@ const updateUser = (event) => {
 }
 
 return (
-    <main style={{ textAlign: "center" }}>
         <form className="form--login" onSubmit={handleCreate}>
-            <h1 className="create_profile is-size-2">Create A Profile</h1>
+            <h1 className="is-size-2 has-text-centered">Create A Profile</h1>
             <fieldset>
                 <label htmlFor="fullName">Full Name</label>
                 <input onChange={updateUser}
@@ -119,8 +118,6 @@ return (
                 <Link to="/login">Log In</Link>
             </section>
         </form>
-
-    </main>
     
 )
 }

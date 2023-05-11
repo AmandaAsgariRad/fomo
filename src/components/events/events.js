@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { FaHeart, FaSpotify, FaYoutube } from "react-icons/fa"
-import { Link } from "react-router-dom"
-import "../fomo.css"
+import "./events.css"
 
 export const Events = ({ id, userId, genreId, venue, when, image, name, spotify, youTube, infoLink }) => {
 
@@ -58,68 +57,140 @@ export const Events = ({ id, userId, genreId, venue, when, image, name, spotify,
                 .catch((error) => console.log(error))
         }
     }
-
     return (
         <div className="block">
-            <div className="card">
-                <div className="card-content has-text-centered">
-                    <div className="image">
-                        <img src={image} alt={name} />
-                    </div>
-                    <div className="artistName">
-                        <h2 className="title">{name}</h2>
-                    </div>
-                    <div className="genre">
-                        <h4>{genreId}</h4>
-                    </div>
-                    <div className="venue">
-                        <h4>At {venue}</h4>
-                    </div>
-                    <div className="when">
-                        <h4>On {when}</h4>
-                    </div>
-                    <div className="infoLink">
-                        {infoLink && (
-                            <a href={infoLink} target="_blank" rel="external">
-                                <h4>Info Link</h4>
-                            </a>
-                        )}
-                    </div>
-
-                    <footer className="card-footer">
-                        <p className="card-footer-item">
-                            <span>
-                                {spotify && (
-                                    <a href={spotify} target="_blank" rel="external">
-                                        <FaSpotify />
-                                    </a>
+            <section>
+                <div className="columns is-multiline">
+                    <div className="column is-multiline is-4">
+                        <div className="card">
+                            <div className="card-content has-padding has-text-centered">
+                                <div className="card-image">
+                                    <figure className="image is-4by3">
+                                    <img src={image} alt={name} />
+                                    </figure>
+                                </div>
+                                <div className="title-container has-margin-top has-text-centered">
+                                <h2 className="title is-size-4">{name}</h2>
+                                <div className="title-underline"></div>
+                                </div>
+                                <div className="genre-container has-margin-top has-text-centered">
+                                <div className="subtitle is-size-6 has-text-grey">{genreId}</div>
+                                <div className="subtitle is-size-6 has-text-grey">Where: {venue}</div>
+                                <div className="subtitle is-size-6 has-text-grey">When: {when}</div>
+                                {infoLink && (
+                                    <div className="subtitle is-size-6 has-text-grey">
+                                        <a href={infoLink} target="_blank" rel="external">Event details</a>
+                                    </div>
                                 )}
-                            </span>
-                        </p>
-                        <p className="card-footer-item">
-                            <span>
-                                {youTube && (
-                                    <a href={youTube} target="_blank" rel="external">
-                                        <FaYoutube />
-                                    </a>
-                                )}
-                            </span>
-                        </p>
-                        <p className="card-footer-item">
-                            <span>
-                                <button className="button is-white" onClick={handleFavoriteClick}>
-                                    <FaHeart color={isFavorite ? "red" : "grey"} />
-                                </button>
-                            </span>
-                        </p>
-                    </footer>
 
+                                <footer className="card-footer">
+                                    {spotify && (
+                                        <p className="card-footer-item">
+                                            <a href={spotify} target="_blank" rel="external">
+                                                <FaSpotify />
+                                            </a>
+                                        </p>
+                                    )}
+                                    {youTube && (
+                                        <p className="card-footer-item">
+                                            <a href={youTube} target="_blank" rel="external">
+                                                <FaYoutube />
+                                            </a>
+                                        </p>
+                                    )}
+                                    <p className="card-footer-item">
+                                        <button className="button is-white" onClick={handleFavoriteClick}>
+                                            <FaHeart color={isFavorite ? "red" : "grey"} />
+                                        </button>
+                                    </p>
+                                </footer>
+                            </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
-
     )
 }
+
+
+
+
+
+
+
+
+
+
+
+    //     return (
+//         <div className="block">
+//             <section>
+//                 <div className="columns is-multiline">
+//                         <div className="column is-multiline is-4">
+//                         <div className="card">
+//                         <div className="card-content has-padding has-text-centered">
+//                     <div className="image">
+//                         <img src={image} alt={name} />
+//                     </div>
+//                     <div className="artistName">
+//                         <h2 className="title">{name}</h2>
+//                     </div>
+//                     <div className="genre">
+//                         <h4>{genreId}</h4>
+//                     </div>
+//                     <div className="venue">
+//                         <h4>At {venue}</h4>
+//                     </div>
+//                     <div className="when">
+//                         <h4>On {when}</h4>
+//                     </div>
+//                     <div className="infoLink">
+//                         {infoLink && (
+//                             <a href={infoLink} target="_blank" rel="external">
+//                                 <h4>Info Link</h4>
+//                             </a>
+//                         )}
+//                     </div>
+
+//                     <footer className="card-footer">
+//                         <p className="card-footer-item">
+//                             <span>
+//                                 {spotify && (
+//                                     <a href={spotify} target="_blank" rel="external">
+//                                         <FaSpotify />
+//                                     </a>
+//                                 )}
+//                             </span>
+//                         </p>
+//                         <p className="card-footer-item">
+//                             <span>
+//                                 {youTube && (
+//                                     <a href={youTube} target="_blank" rel="external">
+//                                         <FaYoutube />
+//                                     </a>
+//                                 )}
+//                             </span>
+//                         </p>
+//                         <p className="card-footer-item">
+//                             <span>
+//                                 <button className="button is-white" onClick={handleFavoriteClick}>
+//                                     <FaHeart color={isFavorite ? "red" : "grey"} />
+//                                 </button>
+//                             </span>
+//                         </p>
+//                     </footer>
+//                 </div>
+//                 </div>
+//                 </div>
+//                 </div>
+//         </section>
+//         </div>
+
+//     )
+// }
 
 
 
