@@ -6,5 +6,5 @@ export const NavBar = () => {
     const localFomoUser = localStorage.getItem("fomo_user")
     const fomoUserObject = JSON.parse(localFomoUser)
 
-    return (fomoUserObject ? <Nav2/> :  <Nav1/>)
+    return (<Nav2/>)
 }

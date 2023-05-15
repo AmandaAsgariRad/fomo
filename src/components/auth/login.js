@@ -34,6 +34,12 @@ export const Login = () => {
         <nav className="logo-container">
               <img src="../images/fomoLogo.jpg" alt="fomo logo" className="logo" />
             </nav>
+            <div className="genre-container has-margin-top has-text-centered">
+                        <div className="subtitle is-size-3 has-text-grey">Don't let the Fear Of Missing Out control your life.
+                        </div>
+                        <div className="subtitle is-size-5 has-text-grey">Discover exciting Nashville events and experiences with our website, and never miss out again!
+                        </div>
+            </div>
             <form className="form-login" onSubmit={handleLogin}>
                 <div className="title-container">
                 <div className="title is-size-1 has-text-centered">Login</div>
@@ -51,9 +57,11 @@ export const Login = () => {
                     <div className="button-container has-margin-top">
                         <button className="button is-small" id="btnLogin" type="submit">Sign In</button>
                     </div>
+
+                    <h4 className="register">Not a member?</h4>
             
             <section className="link--register">
-                <Link to="/createLogin">Not a member yet?</Link>
+                <Link to="/createLogin">Get Started</Link>
         </section>
                 </div>
             </form>

@@ -7,20 +7,20 @@ export const Events = ({ id, userId, genreId, venue, when, image, name, spotify,
 
     const [isFavorite, setIsFavorite] = useState(false)
     const [user, setUser] = useState({})
-    
+
     const [events, setEvents] = useState([])
 
-    
+
     useEffect(() => {
         const localFomoUser = localStorage.getItem("fomo_user")
         const fomoUserObject = JSON.parse(localFomoUser)
-        
+
         fetch(`http://localhost:8088/favorites?userId=${fomoUserObject.id}&eventId=${id}`)
             .then((response) => response.json())
             .then((data) => {
                 if (data.length > 0) {
                     setIsFavorite(true)
-                    
+
                 }
             })
             .catch((error) => console.log(error))
@@ -30,22 +30,13 @@ export const Events = ({ id, userId, genreId, venue, when, image, name, spotify,
         const localFomoUser = localStorage.getItem("fomo_user")
         const fomoUserObject = JSON.parse(localFomoUser)
         fetch(`http://localhost:8088/events?&_expand=genre`)
-          .then((response) => response.json())
-          .then((data) => {
-            setEvents(data)
-            setUser(fomoUserObject)
-          })
-      }, [])
+            .then((response) => response.json())
+            .then((data) => {
+                setEvents(data)
+                setUser(fomoUserObject)
+            })
+    }, [])
 
-    //   useEffect(() => {
-    //     if (refresh) {
-    //         fetch(`http://localhost:8088/events?&_expand=genre`)
-    //           .then((response) => response.json())
-    //           .then((data) => {
-    //             setEvents(data)
-    //           })
-    //     }
-    //   }, [refresh])
 
     const handleFavoriteClick = (event) => {
         event.preventDefault()
@@ -86,22 +77,19 @@ export const Events = ({ id, userId, genreId, venue, when, image, name, spotify,
     }
 
     const navigate = useNavigate()
-    
+
     const handleRemove = (eventId) => {
         if (window.confirm('Are you sure you want to delete this event?')) {
             return fetch(`http://localhost:8088/events/${eventId}`, {
                 method: "DELETE",
             })
                 .then(() => setRefresh(true))
-                // .then(() => navigate("/events"))
-    
+
         }
-        }
+    }
 
     return (
         <div className="block">
-
-
             <div className="card">
                 <div className="card-content has-padding">
                     <div className="card-image">
