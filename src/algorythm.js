@@ -16,7 +16,6 @@
 
 
 //delete favorite functionality
-//navbar logo in nav2 page
 //finish the all fomos from admin pages
 //finish admin view routing for 'my profile'
 //finish favorites display on userFaves page

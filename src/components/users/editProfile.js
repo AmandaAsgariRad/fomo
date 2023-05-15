@@ -56,8 +56,9 @@ export const EditProfile = () => {
     }
 
     return <form>
-        <div className="title is-size-2 has-text-centered">
+        <div className="title-container is-size-1 has-text-centered">
         <h2>Edit Profile</h2>
+        </div>
         <div className="box has-text-centered">
         <fieldset>
             <div className="form-group">
@@ -132,9 +133,8 @@ export const EditProfile = () => {
             </div>
         </fieldset>
         <div className="button-container has-margin-top">
-        <button className="button is-small is-primary" id="updateBtn" onClick={(event) =>
+        <button className="button is-small" id="updateBtn" onClick={(event) =>
             handleUpdateButtonClick(event)}>Update</button>
-            </div>
             </div>
             </div>
     </form>

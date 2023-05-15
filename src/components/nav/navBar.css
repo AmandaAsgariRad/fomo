@@ -1,12 +1,51 @@
 @import 'bulma/css/bulma.min.css';
 
-.nav-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    
-}
 
 .nav-item {
     margin-top: 10px;
+    width: 100%;
 }
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 800px;
+}
+
+.logo-container {
+    text-align: center;
+    /* height: 800px; */
+  }
+  
+  /* .navbar {
+    background-color: #000;
+  } */
+  
+  
+  /* .navbar-burger {
+    color: #fff;
+  } */
+  
+  .navbar-item {
+    color: white;
+    font-weight: bold;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #000 !important;
+    color: white !important;
+    border: none;
+    align-items: center;
+  }
+  
+  /* .navbar-menu .navbar-item {
+    color: #fff;
+  } */
+  
+  .navbar-item:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+  }

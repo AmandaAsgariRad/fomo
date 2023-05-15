@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-//import "./login.css"
+import "./events.css"
+
 export const CreateEvent = () => {
     const localFomoUser = localStorage.getItem("fomo_user")
     const fomoUserObject = JSON.parse(localFomoUser)
@@ -22,6 +23,7 @@ export const CreateEvent = () => {
     const navigate = useNavigate()
 
     const createNewEvent = (event) => {
+        console.log(fomo)
         event.preventDefault()
         return fetch("http://localhost:8088/events", {
             method: "POST",
@@ -52,7 +54,7 @@ export const CreateEvent = () => {
         const copy = { ...fomo }
         if (event.target.id === 'when') {
             const date = new Date(event.target.value)
-            copy['when'] = date.toLocaleDateString('en-US')
+            copy['when'] = date.toLocaleDateString('en-US', {timeZone: 'UTC'})
         } 
         else {
         copy[event.target.id] = event.target.value
@@ -60,9 +62,11 @@ export const CreateEvent = () => {
         setEvent(copy)
     }
     return (
-            <form className="form--login" onSubmit={createNewEvent}>
-                <div className="title is-size-2 has-text-centered">
+    <form onSubmit={(e) => createNewEvent(e)}> 
+        <div className="title is-size-2 has-text-centered" >
                 <h1>Create A FOMO</h1>
+                </div>
+                <div className="box has-text-centered">
                 <fieldset>
                     <label htmlFor="name">Artist Name: </label>
                     <input onChange={newEvent}
@@ -71,6 +75,7 @@ export const CreateEvent = () => {
                         className="form-control"
                         required />
                 </fieldset>
+                <fieldset>
                 <div className="genre-dropdown-container">
                     <label htmlFor="genre">Genre: </label>
                     <select id="genre" className="genreDropDowns"
@@ -93,6 +98,7 @@ export const CreateEvent = () => {
                         )}
                     </select>
                 </div>
+                </fieldset>
 
                 <fieldset>
                     <label htmlFor="venue">Venue: </label>
@@ -102,6 +108,7 @@ export const CreateEvent = () => {
                         className="form-control"
                         required />
                 </fieldset>
+
                 <fieldset>
                     <label htmlFor="when">When: </label>
                     <input onChange={newEvent}
@@ -111,6 +118,7 @@ export const CreateEvent = () => {
                         placeholder="required"
                         required />
                 </fieldset>
+
                 <fieldset>
                     <label htmlFor="image">Image: </label>
                     <input onChange={newEvent}
@@ -122,6 +130,7 @@ export const CreateEvent = () => {
                         title="Please enter a valid image URL (JPG, JPEG, PNG, or GIF)"
                         required />
                 </fieldset>
+
                 <fieldset>
                     <label htmlFor="infoLink">Info Link: </label>
                     <input onChange={newEvent}
@@ -133,6 +142,7 @@ export const CreateEvent = () => {
                         pattern="https?://.+"
                     />
                 </fieldset>
+
                 <fieldset>
                     <label htmlFor="spotify">Spotify URL: </label>
                     <input onChange={newEvent}
@@ -144,6 +154,7 @@ export const CreateEvent = () => {
                         title="Please enter a valid Spotify artist URL"
                         required />
                 </fieldset>
+                
                 <fieldset>
                     <label htmlFor="youTube">YouTube URL: </label>
                     <input onChange={newEvent}
@@ -154,10 +165,11 @@ export const CreateEvent = () => {
                         title="Please enter a valid YouTube video URL"
                         required />
                 </fieldset>
-                <fieldset>
-                    <button type="submit">Create FOMO</button>
-                </fieldset>
+                
+                <div className="button-container has-margin-top">
+                    <button className="button is-small is-primary" type="submit">Create FOMO</button>
                 </div>
+            </div>
             </form>
 
     )
