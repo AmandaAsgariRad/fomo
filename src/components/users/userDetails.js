@@ -22,7 +22,7 @@ export const UserDetails = () => {
 
     return (
         <section className="profileDetails">
-            <h2 className="is-size-2 has-text-centered">Profile Information</h2>
+            <h2 className="title-container is-size-1 has-text-centered">Profile Information</h2>
             <div className="box has-text-centered">
                 <ul>
                     <li>{user?.fullName}</li>
@@ -35,7 +35,7 @@ export const UserDetails = () => {
             <div className="button-container has-margin-top">
                 <div className="btnEdit has-text-centered">
                     <Link to="/editProfile">
-                        <button className="button is-small is-primary" id="btnEdit">Edit Profile</button>
+                        <button className="button is-small" id="btnEdit">Edit Profile</button>
                     </Link>
                 </div>
             </div>
@@ -43,7 +43,7 @@ export const UserDetails = () => {
             <div className="button-container has-margin-top">
                 <div className="btnUserCreatedFomo has-text-centered">
                     <Link to="/userFomos">
-                        <button className="button is-small is-primary" id="btnCreated">FOMO's Created</button>
+                        <button className="button is-small" id="btnCreated">FOMO's Created</button>
                     </Link>
                 </div>
             </div>
@@ -51,11 +51,18 @@ export const UserDetails = () => {
             <div className="button-container has-margin-top">
                 <div className="btnUserCreateFomo has-text-centered">
                     <Link to="/eventForm">
-                        <button className="button is-small is-primary" id="btnCreate">Create a FOMO</button>
+                        <button className="button is-small" id="btnCreate">Create a FOMO</button>
                     </Link>
                 </div>
                 </div>
-            </div>
+            
+                   {user?.isAdmin && 
+                   <div className="button-container has-margin-top">
+                <div className="btnUserCreateFomo has-text-centered">
+                    <button className="button is-small">All User FOMO's</button>
+                    </div>
+                    </div>}
+                    </div>
         </section>
     )
 }

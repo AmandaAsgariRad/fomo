@@ -5,35 +5,26 @@ export const Nav2 = () => {
     const navigate = useNavigate()
 
     return (
-        <div className="block">
-            <nav className="nav">
-                <div className="nav-left">
-                    <a className="nav-item">
-                        <h1 className="title is-4">FOMO</h1>
-                    </a>
-                </div>
-
-                <div className="nav-right nav-menu">
-
-                    <Link className="nav-item" to="/events">Events</Link>
-
-                    <Link className="nav-item" to="/users">My Profile</Link>
-
-                    <Link className="nav-item" to="/users/userFaves">Favorites</Link>
-
-                    {
-                        localStorage.getItem("fomo_user")
-                            ?
-                            <Link className="nav-item" onClick={() => {
-                                localStorage.removeItem("fomo_user")
-                                navigate("/", { replace: true })
-                            }}>Logout</Link>
-                            : ""
-                    }
-                </div>
+        <>
+            <nav className="logo-container">
+              <img src="../images/fomoLogo.jpg" alt="fomo logo" className="logo" />
             </nav>
-        </div >
+            <nav className="navbar" role="navigation" aria-label="main navigation">
+                  <Link className="navbar-item" to="/events">Events</Link>
+                  <Link className="navbar-item" to="/users">My Profile</Link>
+                  <Link className="navbar-item" to="/users/userFaves">Favorites</Link>
+                  {
+                    localStorage.getItem("fomo_user") ?
+                      <Link className="navbar-item" onClick={() => {
+                        localStorage.removeItem("fomo_user")
+                        navigate("/", { replace: true })
+                      }}>Logout</Link>
+                      : ""
+                  }
+                  
+            </nav>
+         
+    </>
     )
-}
+        }
 
-{/* <div className="navbar__item navbar__logout"></div> */ }

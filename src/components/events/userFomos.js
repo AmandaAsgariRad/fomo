@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { FaSpotify, FaYoutube } from "react-icons/fa"
-import "../fomo.css"
+import "./events.css"
 
 export const UserFomos = () => {
     const [fomos, setFomos] = useState([])
@@ -45,78 +45,98 @@ export const UserFomos = () => {
 
 
     return (
-        <div className="allfomos-container">
-            <div className="allfomos-header is-size-2 has-text-centered">
+        <div className="block">
+            <div className="title-container is-size-1 has-text-centered">
                 <h2>Fomos Created</h2>
             </div>
-            <article className="all_fomos">
-                {fomos.map((fomoEvent) => (
-                    <div key={`fomo--${fomoEvent.id}`} className="event-container">
-                        <section className="event">
-                            <div className="image">
-                                <img src={fomoEvent.image} alt={fomoEvent.name} />
-                            </div>
-                            <div className="artistName">
-                                <h2>{fomoEvent.name}</h2>
-                            </div>
-                            <div className="genre">
-                                <h4>{fomoEvent?.genre?.type}</h4>
-                            </div>
-                            <div className="venue">
-                                <h4>At {fomoEvent.venue}</h4>
-                            </div>
-                            <div className="when">
-                                <h4>On {fomoEvent.when}</h4>
-                            </div>
-                            <div className="spotifyLink">
-                                {fomoEvent.spotify && (
-                                    <a href={fomoEvent.spotify} target="_blank" rel="external">
-                                        <FaSpotify />
-                                    </a>
-                                )}
-                            </div>
-                            <div className="youTubeLink">
-                                {fomoEvent.youTube && (
-                                    <a href={fomoEvent.youTube} target="_blank" rel="external">
-                                        <FaYoutube />
-                                    </a>
-                                )}
-                            </div>
-                            <div className="infoLink">
-                                {fomoEvent.infoLink && (
-                                    <a href={fomoEvent.infoLink} target="_blank" rel="external">
-                                        <h4>Info Link</h4>
-                                    </a>
-                                )}
-                            </div>
+            <section>
+                <div className="columns is-multiline has-text-centered">
+                    {fomos.map((fomoEvent) => (
+                        <div key={`fomo--${fomoEvent.id}`} className="column is-4">
+                            <div className="card">
+                                <div className="card-content has-padding">
+                                    <div className="card-image">
+                                        <section className="event">
+
+                                            <div className="image">
+                                                <figure className="image is-4by3">
+                                                    <img src={fomoEvent.image} alt={fomoEvent.name} />
+                                                </figure>
+                                            </div>
+
+                                            <div className="title-container has-margin-top has-text-centered">
+                                                <h2 className="title is-size-4">{fomoEvent.name}</h2>
+                                                <div className="title-underline"></div>
+                                            </div>
+
+                                            <div className="genre-container has-margin-top has-text-centered">
+                                                <div className="subtitle is-size-6 has-text-grey">{fomoEvent?.genre?.type}
+                                                </div>
 
 
-                            {fomoEvent.userId === fomoUserObject.id
-                                ? <>
-                                    <button
-                                        className="button is-small"
-                                        id="deleteBtn"
-                                        onClick={() => handleDelete(fomoEvent.id)}
-                                        type="delete"
-                                    >
-                                        Delete
-                                    </button>
-                                    <button
-                                        className="button is-small"
-                                        id="editBtn"
-                                    //    onClick={() => handleDelete(fomoEvent.id)}
-                                    //    type="delete"
-                                    >
-                                        Edit
-                                    </button>
-                                </>
-                                : <></>
-                            }
-                        </section>
-                    </div>
-                ))
-                }
-            </article >
-        </div >
+
+                                                <div className="subtitle is-size-6 has-text-grey">
+                                                    <span className="icon has-text-primary">
+                                                        <i className="fas fa-map-marker-alt"></i>
+                                                    </span>
+                                                    <span>{fomoEvent.venue}</span>
+                                                </div>
+
+                                                <div className="subtitle is-size-6 has-text-grey">
+                                                    <h4>{fomoEvent.when}</h4>
+                                                </div>
+
+                                                {fomoEvent.infoLink && (
+                                                    <div className="subtitle is-size-6 has-text-grey">
+                                                        <a href={fomoEvent.infoLink} target="_blank" rel="external">Event Details
+                                                        </a>
+                                                    </div>
+                                                )}
+
+                                                <footer className="card-footer">
+                                                    {fomoEvent.spotify && (
+                                                        <p className="card-footer-item">
+                                                            <a href={fomoEvent.spotify} target="_blank" rel="external" className="has-text-black">
+                                                                <FaSpotify />
+                                                            </a>
+                                                        </p>
+                                                    )}
+
+                                                    {fomoEvent.youTube && (
+                                                        <p className="card-footer-item">
+                                                            <a href={fomoEvent.youTube} target="_blank" rel="external" className="has-text-black">
+                                                                <FaYoutube />
+                                                            </a>
+                                                        </p>
+                                                    )}
+
+
+                                                </footer>
+                                                {fomoEvent.userId === fomoUserObject.id
+                                                    ? <>
+                                                        <div className="delete-button-container has-margin-top">
+                                                            <button
+                                                                className="button is-small"
+                                                                id="deleteBtn"
+                                                                onClick={() => handleDelete(fomoEvent.id)}
+                                                                type="delete"
+                                                            >
+                                                                Delete
+                                                            </button>
+                                                        </div>
+                                                    </>
+                                                    : <></>
+                                                }
+                                            </div>
+                                        </section>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+        </div>
     )
 }
