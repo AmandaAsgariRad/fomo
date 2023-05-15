@@ -2,9 +2,10 @@ import { useEffect, useState } from "react"
 import "./users.css"
 
 export const UserFaves = () => {
-    const [favorites, setFavorites] = useState([])
+    const [favorites, setFavorites] = useState(null)
     const [user, updateUser] = useState({})
     const [userFaves, setUserFaves] = useState([])
+    const [refresh, setRefresh] = useState(false)
 
     const localFomoUser = localStorage.getItem("fomo_user")
     const fomoUserObject = JSON.parse(localFomoUser)
@@ -15,7 +16,15 @@ export const UserFaves = () => {
             .then((data) => {
                 setFavorites(data)
             })
-    })
+    }, [])
+    
+    useEffect(() => {
+        fetch(`http://localhost:8088/favorites?&_expand=event`)
+            .then(response => response.json())
+            .then((data) => {
+                setFavorites(data)
+            })
+    }, [refresh])
 
     useEffect(() => {
         fetch(`http://localhost:8088/users/${fomoUserObject.id}`)
@@ -24,22 +33,28 @@ export const UserFaves = () => {
                 updateUser(data)
             })
     }, [])
+    
+    
 
     useEffect(() => {
+      if (favorites && user) {
         const userFavorites = favorites.filter((favorite) => favorite.userId === user.id)
         setUserFaves(userFavorites)
-    }, [favorites])
+      }
+    }, [favorites, user])
 
-  //   const handleRemove = (favoriteId) => {
-  //     if (window.confirm('Are you sure you want to delete this favorite?')) {
-  //         return fetch(`http://localhost:8088/favorites/${favoriteId}`, {
-  //             method: "DELETE",
-  //         })
-  //             .then(() => {
-  //                 fetchFomos()
-  //             })
-  //     }
-  // }
+    
+
+    const handleRemove = (favoriteId) => {
+      if (window.confirm('Are you sure you want to delete this favorite?')) {
+          return fetch(`http://localhost:8088/favorites/${favoriteId}`, {
+              method: "DELETE",
+          })
+              .then(() => {
+                  setRefresh(true)
+              })
+      }
+  }
 
 
     return <div className="block">
@@ -53,9 +68,9 @@ export const UserFaves = () => {
             {userFaves.map((userFavorite) => (
               <div key={`${userFavorite.id}`} className="column is-multiline is-4">
                 <div className="card">
-                <figure className="image is-4by3">
-                    <img src={userFavorite?.event?.image} alt="image"/>
-                  </figure>
+                {/* <figure className="image is-4by3">
+                    <img src={userFavorite.event.image} alt="image"/>
+                  </figure> */}
                   <div className="card-content has-padding">
                     <section className="event">
                       
@@ -76,14 +91,14 @@ export const UserFaves = () => {
                       </div>
                       
                       <div className="infoLink">
-                        {userFavorite.infoLink && (
+                        {userFavorite?.event?.infoLink && (
                           <a href={userFavorite?.event?.infoLink} target="_blank" rel="external">
                             <h4>Event Info</h4>
                           </a>
                         )}
                       </div>
                       <div className="delete-button-container">
-                      <button class="button is-small" id="deleteBtn">Remove</button>
+                      <button className="button is-small" id="deleteBtn" onClick={() => handleRemove(userFavorite.id)}>Remove</button>
                       </div>
                     </section>
                   </div>
@@ -99,7 +114,7 @@ export const UserFaves = () => {
   </div>
 }
 
-// onClick={() => handleRemove(userFavorite.id)}
+
 
 
 

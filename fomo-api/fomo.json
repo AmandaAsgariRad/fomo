@@ -480,18 +480,6 @@
       "spotify": "https://open.spotify.com/artist/7JxrbI1DZLSJUyzsrBQop2",
       "youTube": "https://www.youtube.com/results?search_query=diarrhea+planet",
       "infoLink": "https://www.ryman.com/event/2023-06-14-diarrhea-planet-at-7-30-pm"
-    },
-    {
-      "name": "moe.",
-      "userId": 1,
-      "genreId": 1,
-      "venue": "The Caverns",
-      "when": "7/21/2023",
-      "image": "https://static.spacecrafted.com/a56b71d5297f4d9fa85dc58d60c7b8bb/i/f24ecf78765b4563b92063414b0cb52b/1/GCuCv726gZycFxatRCb7iU/CVRNS%20moe%201920x1005.jpg",
-      "infoLink": "https://www.thecaverns.com/event/moe-in-the-caverns-2",
-      "spotify": "https://open.spotify.com/artist/2ZfHMUPrxoZNDTBPHmmdhj",
-      "youTube": "https://www.youtube.com/results?search_query=moe.",
-      "id": 41
     }
   ],
   "genres": [
@@ -599,19 +587,9 @@
       "userId": 4
     },
     {
-      "id": 2,
-      "eventId": 6,
-      "userId": 1
-    },
-    {
       "id": 3,
       "eventId": 12,
       "userId": 3
-    },
-    {
-      "id": 4,
-      "eventId": 7,
-      "userId": 1
     },
     {
       "id": 5,
@@ -702,6 +680,11 @@
       "userId": 2,
       "eventId": 13,
       "id": 22
+    },
+    {
+      "userId": 1,
+      "eventId": 6,
+      "id": 23
     }
   ]
 }

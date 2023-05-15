@@ -167,7 +167,7 @@ export const CreateEvent = () => {
                 </fieldset>
                 
                 <div className="button-container has-margin-top">
-                    <button className="button is-small is-primary" type="submit">Create FOMO</button>
+                    <button className="button is-small" type="submit">Create FOMO</button>
                 </div>
             </div>
             </form>
