@@ -58,8 +58,10 @@ export const UserFaves = () => {
 
 
     return <div className="block">
-    <div className="is-size-2 has-text-centered">
+      <div className="title-container">
+    <div className="title is-size-1 has-text-centered">
       <h2>Favorites</h2>
+      </div>
     </div>
     <section>
       <div className="card-content has-text-centered">
@@ -68,9 +70,6 @@ export const UserFaves = () => {
             {userFaves.map((userFavorite) => (
               <div key={`${userFavorite.id}`} className="column is-multiline is-4">
                 <div className="card">
-                {/* <figure className="image is-4by3">
-                    <img src={userFavorite.event.image} alt="image"/>
-                  </figure> */}
                   <div className="card-content has-padding">
                     <section className="event">
                       

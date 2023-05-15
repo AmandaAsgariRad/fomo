@@ -35,10 +35,12 @@ export const Login = () => {
               <img src="../images/fomoLogo.jpg" alt="fomo logo" className="logo" />
             </nav>
             <form className="form-login" onSubmit={handleLogin}>
-                <div className="title is-size-2 has-text-centered">Login</div>
+                <div className="title-container">
+                <div className="title is-size-1 has-text-centered">Login</div>
+                </div>
                 <div className="box has-text-centered">
                     <fieldset className="email-input">
-                        <label htmlFor="inputEmail">Enter email address </label>
+                        <label htmlFor="inputEmail">Enter email address: </label>
                         <input type="email"
                             value={loginEmail}
                             onChange={event => setLoginEmail(event.target.value)}

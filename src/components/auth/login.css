@@ -14,5 +14,39 @@
 
 .logo-container {
     text-align: center;
-    /* height: 800px; */
   }
+
+  .title-container {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  fieldset {
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+    float: right;
+  }
+
+  .box {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  label {
+    float: left;
+    margin-bottom: 20px;
+  }
+
+  .button-container button:hover {
+    background-color: black;
+    color: white;
+  }
+
+  section {
+    padding-bottom: 50px;
+  }
+
+ 
