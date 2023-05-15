@@ -72,3 +72,8 @@ fieldset {
     margin: 0 auto;
     margin-top: 2rem;
 }
+
+.title-container {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }

@@ -5,7 +5,20 @@ import { EventSearch } from "./eventSearch"
 export const EventList = () => {
   const [fomoEvents, setEvents] = useState([])
   const [allEvents, setAllEvents] = useState([])
-  
+  const [refresh, setRefresh] = useState(false)
+  const [user, setUser] = useState({})
+
+
+  useEffect(() => {
+    const localFomoUser = localStorage.getItem("fomo_user")
+    const fomoUserObject = JSON.parse(localFomoUser)
+    
+    fetch(`http://localhost:8088/users/${fomoUserObject.id}`)
+        .then(response => response.json())
+        .then((data) => {
+            setUser(data)
+        })
+}, [])
 
   useEffect(() => {
     fetch(`http://localhost:8088/events?&_expand=genre`)
@@ -15,6 +28,19 @@ export const EventList = () => {
         setAllEvents(data)
       })
   }, [])
+ 
+  useEffect(() => {
+    fetch(`http://localhost:8088/events?&_expand=genre`)
+      .then((response) => response.json())
+      .then((data) => {
+        setEvents(data)
+        setAllEvents(data)
+        setRefresh(false)
+      })
+  }, [refresh])
+
+ 
+
 
   const handleResetClick = () => {
     setEvents(allEvents)
@@ -27,10 +53,12 @@ return (
       </div>
 
       <EventSearch setEvents={setEvents} fomoEvents={fomoEvents} handleResetClick={handleResetClick} />
+      
+      
       <div className="columns is-multiline has-text-centered">
       {fomoEvents.length > 0 && fomoEvents.map((fomoEvent) => (
          <div className="column is-4">
-        <Events
+        <Events setRefresh={setRefresh} 
           key={`fomoEvent--${fomoEvent.id}`}
           userId={fomoEvent.userId}
           name={fomoEvent.name}
@@ -42,7 +70,9 @@ return (
           spotify={fomoEvent.spotify}
           youTube={fomoEvent.youTube}
           infoLink={fomoEvent.infoLink}
+          
         />
+        
       </div>
       ))}
       </div>

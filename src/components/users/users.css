@@ -72,3 +72,27 @@ fieldset {
 .button-container {
     margin-top: 16px;
 }
+
+.form-control {
+    float: right;
+  }
+
+  .box {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  label {
+    float: left;
+    margin-bottom: 20px;
+  }
+
+  .title-container {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  form {
+    padding-bottom: 50px;
+  }

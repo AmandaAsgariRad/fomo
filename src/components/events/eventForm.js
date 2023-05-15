@@ -62,10 +62,12 @@ export const CreateEvent = () => {
         setEvent(copy)
     }
     return (
-    <form onSubmit={(e) => createNewEvent(e)}> 
-        <div className="title is-size-2 has-text-centered" >
+    <form onSubmit={(e) => createNewEvent(e)}>
+        <div className="title-container">
+        <div className="title is-size-1 has-text-centered" >
                 <h1>Create A FOMO</h1>
                 </div>
+                </div> 
                 <div className="box has-text-centered">
                 <fieldset>
                     <label htmlFor="name">Artist Name: </label>
@@ -167,7 +169,7 @@ export const CreateEvent = () => {
                 </fieldset>
                 
                 <div className="button-container has-margin-top">
-                    <button className="button is-small is-primary" type="submit">Create FOMO</button>
+                    <button className="button is-small" type="submit">Create FOMO</button>
                 </div>
             </div>
             </form>

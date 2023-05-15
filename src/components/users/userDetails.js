@@ -56,19 +56,8 @@ export const UserDetails = () => {
                 </div>
                 </div>
             
-                   {user?.isAdmin && 
-                   <div className="button-container has-margin-top">
-                <div className="btnUserCreateFomo has-text-centered">
-                    <button className="button is-small">All User FOMO's</button>
-                    </div>
-                    </div>}
+                   
                     </div>
         </section>
     )
 }
-
-{/* <div className="btnAdminFomos">
-        <Link to="/adminFomos">
-            <button className="btnAdminFomos">All User FOMO's Created</button>
-        </Link>
-    </div> */}
