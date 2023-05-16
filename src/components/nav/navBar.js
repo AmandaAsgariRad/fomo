@@ -1,4 +1,4 @@
-import { Nav1 } from "./nav1"
+
 import { Nav2 } from "./nav2"
 import "./navBar.css"
 

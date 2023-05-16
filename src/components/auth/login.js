@@ -35,9 +35,9 @@ export const Login = () => {
               <img src="../images/fomoLogo.jpg" alt="fomo logo" className="logo" />
             </nav>
             <div className="genre-container has-margin-top has-text-centered">
-                        <div className="subtitle is-size-3 has-text-grey">Don't let the Fear Of Missing Out control your life.
+                        <div className="description is-size-3">Don't let the Fear Of Missing Out control your life.
                         </div>
-                        <div className="subtitle is-size-5 has-text-grey">Discover exciting Nashville events and experiences with our website, and never miss out again!
+                        <div className="description is-size-5">Discover exciting Nashville events and experiences with our website, and never miss out again!
                         </div>
             </div>
             <form className="form-login" onSubmit={handleLogin}>
