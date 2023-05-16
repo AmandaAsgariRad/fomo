@@ -127,8 +127,7 @@ export const CreateEvent = () => {
                         type="text"
                         id="image"
                         className="form-control"
-                        placeholder="paste image URL here"
-                        pattern="^(https)://.*\.(jpg|jpeg|png|gif)$"
+                        placeholder="must be an image address URL"
                         title="Please enter a valid image URL (JPG, JPEG, PNG, or GIF)"
                         required />
                 </fieldset>
@@ -151,7 +150,7 @@ export const CreateEvent = () => {
                         type="text"
                         id="spotify"
                         className="form-control"
-                        placeholder="must be a Spotify URL"
+                        placeholder="must be Spotify URL"
                         pattern="https:\/\/open\.spotify\.com\/artist\/[a-zA-Z0-9]+"
                         title="Please enter a valid Spotify artist URL"
                         required />

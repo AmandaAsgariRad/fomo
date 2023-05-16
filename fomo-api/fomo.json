@@ -1,31 +1,6 @@
 {
   "events": [
     {
-      "id": 1,
-      "userId": 1,
-      "genreId": 1,
-      "venue": "The Ryman Auditorium",
-      "when": "6/17/2023",
-      "image": "images/styx.jpg",
-      "name": "Styx",
-      "spotify": "https://open.spotify.com/artist/4salDzkGmfycRqNUbyBphh",
-      "youTube": "https://www.youtube.com/results?search_query=styx",
-      "infoLink": "https://www.ryman.com/event/styx-2023"
-    },
-    {
-      "id": 2,
-      "userId": 1,
-      "genreId": 2,
-      "eventTypeId": 1,
-      "image": "images/janet_jackson.jpg",
-      "name": "Janet Jackson",
-      "venue": "Bridgestone Arena",
-      "when": "5/4/2023",
-      "spotify": "https://open.spotify.com/search/janet%20jackson",
-      "youTube": "https://www.youtube.com/results?search_query=janet+jackson",
-      "infoLink": "https://www.bridgestonearena.com/events/detail/janet-jackson-together-again-tour"
-    },
-    {
       "id": 3,
       "userId": 1,
       "genreId": 3,
@@ -470,16 +445,16 @@
       "infoLink": "https://www.ryman.com/event/2023-06-03-04-tanya-tucker"
     },
     {
-      "id": 40,
+      "name": "Styx",
       "userId": 1,
       "genreId": 1,
-      "image": "images/planet.jpg",
-      "name": "Diarrhea Planet",
-      "venue": "The Ryman Auditorium",
-      "when": "6/14/2023",
-      "spotify": "https://open.spotify.com/artist/7JxrbI1DZLSJUyzsrBQop2",
-      "youTube": "https://www.youtube.com/results?search_query=diarrhea+planet",
-      "infoLink": "https://www.ryman.com/event/2023-06-14-diarrhea-planet-at-7-30-pm"
+      "venue": "The Ryman",
+      "when": "6/17/2023",
+      "image": "https://images.discovery-prod.axs.com/2023/03/uploadedimage_642494ae1766c.jpg",
+      "infoLink": "https://www.ryman.com/event/styx-2023",
+      "spotify": "https://open.spotify.com/artist/4salDzkGmfycRqNUbyBphh",
+      "youTube": "https://www.youtube.com/results?search_query=styx",
+      "id": 40
     }
   ],
   "genres": [
@@ -521,7 +496,7 @@
     },
     {
       "id": 2,
-      "fullName": "Alex Fun",
+      "fullName": "Alexander Fun",
       "address": "456 Meridian Park",
       "city": "Nashville",
       "state": "Tennessee",
@@ -592,11 +567,6 @@
   ],
   "favorites": [
     {
-      "id": 1,
-      "eventId": 1,
-      "userId": 4
-    },
-    {
       "id": 3,
       "eventId": 12,
       "userId": 3
@@ -630,11 +600,6 @@
       "id": 10,
       "eventId": 31,
       "userId": 6
-    },
-    {
-      "id": 11,
-      "eventId": 40,
-      "userId": 2
     },
     {
       "id": 12,
@@ -673,16 +638,6 @@
     },
     {
       "userId": 1,
-      "eventId": 1,
-      "id": 19
-    },
-    {
-      "userId": 1,
-      "eventId": 2,
-      "id": 20
-    },
-    {
-      "userId": 1,
       "eventId": 3,
       "id": 21
     },
@@ -695,6 +650,11 @@
       "userId": 1,
       "eventId": 6,
       "id": 23
+    },
+    {
+      "userId": 2,
+      "eventId": 3,
+      "id": 25
     }
   ]
 }
